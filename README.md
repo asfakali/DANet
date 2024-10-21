@@ -85,38 +85,40 @@ To run the models, you will need the following packages:
 
 ## Training Script
 4. To train the model, use the `train.py` script. You need to provide several arguments:
-```bash
-python train.py --data_dir <path_to_your_data> --batch_size <batch_size> --epochs <number_of_epochs> --lr <learning_rate> --model <DAB_SNet or DAB_HNet>
+   ```bash
+   python train.py --data_dir <path_to_your_data> --batch_size <batch_size> --epochs <number_of_epochs> --lr <learning_rate> --model <DAB_SNet or DAB_HNet>
 
-### Example
-```bash
-python train.py --data_dir ./data --batch_size 32 --epochs 20 --lr 0.001 --model DAB_HNet
+
+   Example
+   ```bash
+   python train.py --data_dir ./data --batch_size 32 --epochs 20 --lr 0.001 --model DAB_HNet
+
 
 ## Testing
 5. To test the models, load a pre-trained model and evaluate it on a test dataset:
-```bash
-# Load your model and set it to evaluation mode
-model.eval()
-
-# Assume test_loader is predefined
-correct = 0
-total = 0
-with torch.no_grad():
-    for inputs, labels in test_loader:
-        outputs = model(inputs)
-        _, predicted = torch.max(outputs.data, 1)
-        total += labels.size(0)
-        correct += (predicted == labels).sum().item()
-
-print(f'Accuracy of the model on the test set: {100 * correct / total:.2f}%')
-
+   ```bash
+   # Load your model and set it to evaluation mode
+   model.eval()
+   
+   # Assume test_loader is predefined
+   correct = 0
+   total = 0
+   with torch.no_grad():
+       for inputs, labels in test_loader:
+           outputs = model(inputs)
+           _, predicted = torch.max(outputs.data, 1)
+           total += labels.size(0)
+           correct += (predicted == labels).sum().item()
+   
+   print(f'Accuracy of the model on the test set: {100 * correct / total:.2f}%')
+   
 
 ## Testing Script
-To evaluate the trained model, use the test.py script with the following arguments:
-```bash
-python test.py --data_dir <path_to_your_data> --batch_size <batch_size> --checkpoint <path_to_model_checkpoint> --model <DAB_SNet or DAB_HNet>
+6. To evaluate the trained model, use the test.py script with the following arguments:
+   ```bash
+   python test.py --data_dir <path_to_your_data> --batch_size <batch_size> --checkpoint <path_to_model_checkpoint> --model <DAB_SNet or DAB_HNet>
 
-### Example
-```bash
-python test.py --data_dir ./data --batch_size 32 --checkpoint ./checkpoints/model.pth --model DAB_HNet
+   Example
+   ```bash
+   python test.py --data_dir ./data --batch_size 32 --checkpoint ./checkpoints/model.pth --model DAB_HNet
 
