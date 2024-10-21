@@ -1,6 +1,6 @@
 import torch
 import argparse
-from model import DAB_SNet, DAB_HNet
+from model import DA_SNet, DA_HNet
 from dataloader import get_data_loaders
 from sklearn.metrics import precision_score, recall_score, f1_score
 
@@ -9,10 +9,10 @@ def test(args):
     _, _, test_loader = get_data_loaders(args.data_dir, args.batch_size)
     
     # Select the model
-    if args.model == 'DAB_SNet':
-        model = DAB_SNet()
-    elif args.model == 'DAB_HNet':
-        model = DAB_HNet()
+    if args.model == 'DA_SNet':
+        model = DA_SNet()
+    elif args.model == 'DA_HNet':
+        model = DA_HNet()
     else:
         raise ValueError(f"Unknown model {args.model}")
 
@@ -49,11 +49,11 @@ def test(args):
     print(f'Precision: {precision:.2f}, Recall: {recall:.2f}, F1 Score: {f1:.2f}')
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Test a DAB_SNet or DAB_HNet model.")
+    parser = argparse.ArgumentParser(description="Test a DA_SNet or DA_HNet model.")
     parser.add_argument('--data_dir', type=str, required=True, help="Directory of dataset")
     parser.add_argument('--batch_size', type=int, default=64, help="Batch size for testing")
     parser.add_argument('--checkpoint', type=str, required=True, help="Path to model checkpoint")
-    parser.add_argument('--model', type=str, choices=['DAB_SNet', 'DAB_HNet'], required=True, help="Model to test")
+    parser.add_argument('--model', type=str, choices=['DA_SNet', 'DA_HNet'], required=True, help="Model to test")
     
     args = parser.parse_args()
     test(args)
