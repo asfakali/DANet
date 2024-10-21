@@ -35,13 +35,27 @@ DAB_SNet and DAB_HNet leverage advanced convolutional techniques and attention m
 
 To run the models, you will need the following packages:
 
-- Python 3.x
+- Python>=3.6
 - PyTorch
 - NumPy
+- torchvision
 
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repository.git
-   cd your-repository
+   git clone https://github.com/asfakali/DABNet.git
+   cd DABNet
+   pip install torch torchvision numpy
+
+
+## Usage
+To use the models, import them in your Python script:
+```bash
+from model import DAB_SNet, DAB_HNet
+
+# Initialize the models
+dab_s_net = DAB_SNet()
+dab_h_net = DAB_HNet()
+
+
