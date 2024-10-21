@@ -86,13 +86,20 @@ To run the models, you will need the following packages:
 ## Training Script
 4. To train the model, use the `train.py` script. You need to provide several arguments:
    ```bash
-   python train.py --data_dir <path_to_your_data> --batch_size <batch_size> --epochs <number_of_epochs> --lr <learning_rate> --model <DAB_SNet or DAB_HNet>
+   python train.py --data_dir <path_to_your_data> --batch_size <batch_size> --epochs <number_of_epochs> --lr <learning_rate> --model <DAB_SNet or DAB_HNet> --load_model <Path to pre-trained model>
 
 
-   Example
+##### Example
    python train.py --data_dir ./data --batch_size 32 --epochs 20 --lr 0.001 --model DAB_HNet
 
-
+#### Arguments:
+   - `--data_dir`: (required) Path to the directory containing the dataset.
+   - `--batch_size`: (optional) Batch size for testing (default: 64).
+   - `--checkpoint`: (required) Path to the model checkpoint file.
+   - `--lr`: (optional) Learning rate (default: 0.001).
+   - `--model`: (required) The model to test (DAB_SNet or DAB_HNet).
+   -  `--load_model`: (optional) Path to load a pre-trained model.
+     
 ## Testing
 5. To test the models, load a pre-trained model and evaluate it on a test dataset:
    ```bash
@@ -117,9 +124,9 @@ To run the models, you will need the following packages:
    ```bash
    python test.py --data_dir <path_to_your_data> --batch_size <batch_size> --checkpoint <path_to_model_checkpoint> --model <DAB_SNet or DAB_HNet>
 
-   Example
+##### Example
+   ```bash
    python test.py --data_dir ./data --batch_size 32 --checkpoint ./checkpoints/model.pth --model DAB_HNet
-
 
 #### Arguments:
    - `--data_dir`: (required) Path to the directory containing the dataset.
