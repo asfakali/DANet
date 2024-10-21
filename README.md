@@ -77,7 +77,7 @@ To run the models, you will need the following packages:
 
 
 ##### Example
-   ```python train.py --data_dir ./data --batch_size 32 --epochs 20 --lr 0.001 --model DAB_HNet```
+   ```python train.py --data_dir ./data --batch_size 32 --epochs 20 --lr 0.001 --model DA_HNet```
 
 ##### Arguments:
    - `--data_dir`: (required) Path to the directory containing the dataset.
