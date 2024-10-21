@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import argparse
-from model import DAB_SNet, DAB_HNet
+from model import DA_SNet, DA_HNet
 from dataloader import get_data_loaders
 from sklearn.metrics import precision_score, recall_score, f1_score
 
@@ -11,10 +11,10 @@ def train(args):
     train_loader, val_loader, _ = get_data_loaders(args.data_dir, args.batch_size)
     
     # Select the model
-    if args.model == 'DAB_SNet':
-        model = DAB_SNet()
-    elif args.model == 'DAB_HNet':
-        model = DAB_HNet()
+    if args.model == 'DA_SNet':
+        model = DA_SNet()
+    elif args.model == 'DA_HNet':
+        model = DA_HNet()
     else:
         raise ValueError(f"Unknown model {args.model}")
 
@@ -105,12 +105,12 @@ def validate(model, val_loader, criterion, device):
     return val_loss / len(val_loader), accuracy, precision, recall, f1
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Train a DAB_SNet or DAB_HNet model.")
+    parser = argparse.ArgumentParser(description="Train a DA_SNet or DA_HNet model.")
     parser.add_argument('--data_dir', type=str, required=True, help="Directory of dataset")
     parser.add_argument('--batch_size', type=int, default=64, help="Batch size for training")
     parser.add_argument('--epochs', type=int, default=10, help="Number of epochs to train")
     parser.add_argument('--lr', type=float, default=0.001, help="Learning rate")
-    parser.add_argument('--model', type=str, choices=['DAB_SNet', 'DAB_HNet'], required=True, help="Model to train")
+    parser.add_argument('--model', type=str, choices=['DA_SNet', 'DA_HNet'], required=True, help="Model to train")
     parser.add_argument('--load_model', type=str, help="Path to load a pre-trained model")
 
     args = parser.parse_args()
