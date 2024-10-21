@@ -124,9 +124,9 @@ To run the models, you will need the following packages:
    ```bash
    python test.py --data_dir <path_to_your_data> --batch_size <batch_size> --checkpoint <path_to_model_checkpoint> --model <DAB_SNet or DAB_HNet>
 
-##### Example
-   ```bash
+## Example
    python test.py --data_dir ./data --batch_size 32 --checkpoint ./checkpoints/model.pth --model DAB_HNet
+
 
 #### Arguments:
    - `--data_dir`: (required) Path to the directory containing the dataset.
