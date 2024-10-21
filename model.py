@@ -61,7 +61,7 @@ class DAB_S(nn.Module):
         x12 = self.layer10(x11 * x)
         return x12
     
-class DAB_SNet(nn.Module):
+class DA_SNet(nn.Module):
     def __init__(self):
         super(DAB_SNet, self).__init__()
         n = 8
@@ -181,7 +181,7 @@ class DAB_H(nn.Module):
         x12 = self.layer10(x)
         return x12 * x11
 
-class DAB_HNet(nn.Module):
+class DA_HNet(nn.Module):
     def __init__(self):
         super(DAB_HNet, self).__init__()
         n = 8
