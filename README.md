@@ -16,22 +16,7 @@ DANet is a novel convolutional neural network designed for the accurate detectio
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-## Introduction
 
-DAB_SNet and DAB_HNet leverage advanced convolutional techniques and attention mechanisms to enhance image classification accuracy. The models are structured to efficiently process images while minimizing computational overhead, making them ideal for resource-constrained environments. The DAB_SNet uses a traditional attention mechanism, while the DAB_HNet incorporates LazyBatchNorm and PReLU activations for improved stability during training.
-
-## Model Architectures
-
-### DAB_SNet
-
-- **Architecture**: Comprises multiple convolutional layers with attention mechanisms.
-- **Activation Functions**: Utilizes Leaky ReLU and Softmax for output classification.
-- **Pooling**: Employs both average and max pooling to reduce dimensionality.
-
-### DAB_HNet
-
-- **Architecture**: Similar to DAB_SNet but employs PReLU and LazyBatchNorm for better training stability.
-- **Attention Mechanism**: Implements a multi-stage attention mechanism for improved feature extraction.
 
 ## Requirements
 
@@ -45,18 +30,18 @@ To run the models, you will need the following packages:
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/asfakali/DABNet.git
-   cd DABNet
+   git clone https://github.com/asfakali/DANet.git
+   cd DANet
    pip install torch torchvision numpy
 
 
 ## Usage
 2. To use the models, import them in your Python script:
    ```bash
-   from model import DAB_SNet, DAB_HNet
+   from model import DA_SNet, DA_HNet
    # Initialize the models
-   dab_s_net = DAB_SNet()
-   dab_h_net = DAB_HNet()
+   da_s_net = DA_SNet()
+   da_h_net = DA_HNet()
 
 
 ## Training
@@ -64,11 +49,11 @@ To run the models, you will need the following packages:
    ```bash
    import torch
    import torch.optim as optim
-   from model import DAB_SNet  # or DAB_HNet
+   from model import DA_SNet  # or DB_HNet
 
 
    # Initialize model, loss function, and optimizer
-   model = DAB_SNet()  # or DAB_HNet
+   model = DA_SNet()  # or DA_HNet
    criterion = torch.nn.CrossEntropyLoss()
    optimizer = optim.Adam(model.parameters(), lr=0.001)
 
@@ -88,7 +73,7 @@ To run the models, you will need the following packages:
 ## Training Script
 4. To train the model, use the `train.py` script. You need to provide several arguments:
    ```bash
-   python train.py --data_dir <path_to_your_data> --batch_size <batch_size> --epochs <number_of_epochs> --lr <learning_rate> --model <DAB_SNet or DAB_HNet> --load_model <Path to pre-trained model>
+   python train.py --data_dir <path_to_your_data> --batch_size <batch_size> --epochs <number_of_epochs> --lr <learning_rate> --model <DA_SNet or DA_HNet> --load_model <Path to pre-trained model>
 
 
 ##### Example
@@ -99,7 +84,7 @@ To run the models, you will need the following packages:
    - `--batch_size`: (optional) Batch size for testing (default: 64).
    - `--checkpoint`: (required) Path to the model checkpoint file.
    - `--lr`: (optional) Learning rate (default: 0.001).
-   - `--model`: (required) The model to test (DAB_SNet or DAB_HNet).
+   - `--model`: (required) The model to test (DA_SNet or DA_HNet).
    -  `--load_model`: (optional) Path to load a pre-trained model.
      
 ## Testing
@@ -134,5 +119,5 @@ To run the models, you will need the following packages:
    - `--data_dir`: (required) Path to the directory containing the dataset.
    - `--batch_size`: (optional) Batch size for testing (default: 64).
    - `--checkpoint`: (required) Path to the model checkpoint file.
-   - `--model`: (required) The model to test (DAB_SNet or DAB_HNet).
+   - `--model`: (required) The model to test (DA_SNet or DA_HNet).
 
