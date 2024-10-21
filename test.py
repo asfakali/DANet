@@ -2,6 +2,7 @@ import torch
 import argparse
 from model import DAB_SNet, DAB_HNet
 from dataloader import get_data_loaders
+from sklearn.metrics import precision_score, recall_score, f1_score
 
 def test(args):
     # Load data
@@ -24,6 +25,9 @@ def test(args):
 
     correct = 0
     total = 0
+    all_labels = []
+    all_predictions = []
+
     with torch.no_grad():
         for inputs, labels in test_loader:
             inputs, labels = inputs.to(device), labels.to(device)
@@ -32,7 +36,17 @@ def test(args):
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 
-    print(f'Test Accuracy: {100 * correct / total}%')
+            # Store predictions and labels for metrics
+            all_labels.extend(labels.cpu().numpy())
+            all_predictions.extend(predicted.cpu().numpy())
+
+    accuracy = 100 * correct / total
+    precision = precision_score(all_labels, all_predictions, average='weighted')
+    recall = recall_score(all_labels, all_predictions, average='weighted')
+    f1 = f1_score(all_labels, all_predictions, average='weighted')
+
+    print(f'Test Accuracy: {accuracy:.2f}%')
+    print(f'Precision: {precision:.2f}, Recall: {recall:.2f}, F1 Score: {f1:.2f}')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Test a DAB_SNet or DAB_HNet model.")
