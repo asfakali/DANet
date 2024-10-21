@@ -41,7 +41,6 @@ To run the models, you will need the following packages:
 - torchvision
 
 ## Installation
-
 1. Clone the repository:
    ```bash
    git clone https://github.com/asfakali/DABNet.git
@@ -50,45 +49,42 @@ To run the models, you will need the following packages:
 
 
 ## Usage
-To use the models, import them in your Python script:
+2. To use the models, import them in your Python script:
    ```bash
    from model import DAB_SNet, DAB_HNet
-
    # Initialize the models
    dab_s_net = DAB_SNet()
    dab_h_net = DAB_HNet()
 
 
 ## Training
-To train the models, you need to set up a training loop. Here’s a basic example:
-```bash
-import torch
-import torch.optim as optim
-from model import DAB_SNet  # or DAB_HNet
+3. To train the models, you need to set up a training loop. Here’s a basic example:
+   ```bash
+   import torch
+   import torch.optim as optim
+   from model import DAB_SNet  # or DAB_HNet
 
 
-# Initialize model, loss function, and optimizer
-model = DAB_SNet()  # or DAB_HNet
-criterion = torch.nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+   # Initialize model, loss function, and optimizer
+   model = DAB_SNet()  # or DAB_HNet
+   criterion = torch.nn.CrossEntropyLoss()
+   optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-# Assume dataloader is predefined
-num_epochs = 10
-for epoch in range(num_epochs):
-    model.train()  # Set model to training mode
-    for inputs, labels in dataloader:
-        optimizer.zero_grad()
-        outputs = model(inputs)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
-        
-    print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
+   # Assume dataloader is predefined
+   num_epochs = 10
+   for epoch in range(num_epochs):
+       model.train()  # Set model to training mode
+       for inputs, labels in dataloader:
+           optimizer.zero_grad()
+           outputs = model(inputs)
+           loss = criterion(outputs, labels)
+           loss.backward()
+           optimizer.step()
+           
+       print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
 
-### Training Script
-
-To train the model, use the `train.py` script. You need to provide several arguments:
-
+## Training Script
+4. To train the model, use the `train.py` script. You need to provide several arguments:
 ```bash
 python train.py --data_dir <path_to_your_data> --batch_size <batch_size> --epochs <number_of_epochs> --lr <learning_rate> --model <DAB_SNet or DAB_HNet>
 
@@ -97,7 +93,7 @@ python train.py --data_dir <path_to_your_data> --batch_size <batch_size> --epoch
 python train.py --data_dir ./data --batch_size 32 --epochs 20 --lr 0.001 --model DAB_HNet
 
 ## Testing
-To test the models, load a pre-trained model and evaluate it on a test dataset:
+5. To test the models, load a pre-trained model and evaluate it on a test dataset:
 ```bash
 # Load your model and set it to evaluation mode
 model.eval()
