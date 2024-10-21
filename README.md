@@ -51,12 +51,12 @@ To run the models, you will need the following packages:
 
 ## Usage
 To use the models, import them in your Python script:
-```bash
-from model import DAB_SNet, DAB_HNet
+   ```bash
+   from model import DAB_SNet, DAB_HNet
 
-# Initialize the models
-dab_s_net = DAB_SNet()
-dab_h_net = DAB_HNet()
+   # Initialize the models
+   dab_s_net = DAB_SNet()
+   dab_h_net = DAB_HNet()
 
 
 ## Training
@@ -65,6 +65,7 @@ To train the models, you need to set up a training loop. Here’s a basic exampl
 import torch
 import torch.optim as optim
 from model import DAB_SNet  # or DAB_HNet
+
 
 # Initialize model, loss function, and optimizer
 model = DAB_SNet()  # or DAB_HNet
