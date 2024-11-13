@@ -2,7 +2,7 @@
 
 ## Introduction
 
-DANet is a novel convolutional neural network designed for the accurate detection of malaria parasites in red blood cell smear images. Utilizing an innovative Dilated Attention mechanism, DANet effectively highlights critical features while maintaining a lightweight architecture with only 2.3 million parameters. Achieving an impressive accuracy of 98.02% on the NIH Malaria Cell Images Dataset, DANet offers a significant improvement in automated malaria diagnosis, making it ideal for implementation in resource-constrained environments. The models are designed to be lightweight and efficient, suitable for deployment on edge devices.
+DANet is a novel convolutional neural network designed for the accurate detection of malaria parasites in red blood cell smear images. Utilizing an innovative Dilated Attention mechanism, DANet effectively highlights critical features while maintaining a lightweight architecture with only 2.3 million parameters. Achieving an impressive accuracy of 98.02% on the NIH Malaria Cell Images Dataset, DANet offers a significant improvement in automated malaria diagnosis, making it ideal for implementation in resource-constrained environments. The models are designed to be lightweight and efficient, suitable for deployment on edge devices. The model has surpassed the state-of-the-art for the dataset used.
 
 ## Table of Contents
 
